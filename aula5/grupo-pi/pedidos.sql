@@ -1,5 +1,14 @@
+-- GRUPO - 03
+-- caio picciarelli
+-- emanuelly 
+-- isaac pinheiro
+-- karina cupola
+-- victor souza
+-- vitor da luz
+
 CREATE DATABASE sprint2;
 USE sprint2;
+show tables;
 
 CREATE TABLE cliente(
 	id_cliente INT PRIMARY KEY AUTO_INCREMENT,
@@ -124,9 +133,8 @@ JOIN cliente c ON c.id_cliente = p.fk_cliente
 JOIN produto pr ON pr.id_produto = p.fk_produto
 JOIN empresa e ON e.id_empresa = p.fk_empresa
 JOIN entrega en ON en.id_entrega = p.fk_entrega
-
 WHERE
 pr.categoria = 'Eletrônicos' 
 AND c.estado = 'SP'
-
 ORDER BY p.data_pedido;
+
