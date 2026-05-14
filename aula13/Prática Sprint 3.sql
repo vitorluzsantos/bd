@@ -63,9 +63,26 @@ INSERT INTO matricula (fkAluno, fkDisciplina, nota) VALUES
 
 -- 1) Mostre a quantidade de alunos por curso.
 
+-- user count para mostrar quantidade 
+USE escola;
+SELECT 
+	COUNT(*)
+FROM aluno GROUP BY fkCurso;
+
 -- 2) Mostre os cursos que possuem mais de 1 aluno.
+USE escola;
+SELECT 
+	c.nomeCurso,
+	COUNT(*) AS quantidade
+FROM aluno a JOIN curso c ON a.fkCurso = c.idCurso
+GROUP BY a.fkCurso
+HAVING quantidade > 1; 
 
 -- 3) Mostre a média das notas por disciplina.
+SELECT 
+	AVG(m.nota),
+	d.nomeDisciplina
+FROM matricula
 
 -- 4) Mostre a maior nota de cada disciplina.
 
