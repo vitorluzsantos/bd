@@ -79,18 +79,37 @@ GROUP BY a.fkCurso
 HAVING quantidade > 1; 
 
 -- 3) Mostre a média das notas por disciplina.
+
+USE escola;
 SELECT 
-	AVG(m.nota),
+	ROUND(AVG(m.nota),1) as media,
 	d.nomeDisciplina
-FROM matricula
+FROM matricula m 
+JOIN disciplina d ON m.fkDisciplina = d.idDisciplina
+GROUP BY d.nomeDisciplina;
 
 -- 4) Mostre a maior nota de cada disciplina.
 
+USE escola;
+	
 -- 5) Mostre as disciplinas cuja média das notas seja maior que 7.
+
+USE escola;
 
 -- 6) Mostre os alunos que possuem nota acima da média geral.
 
+USE escola;
+
 -- 7) Mostre o aluno que possui a maior nota.
+USE escola;
+SELECT 
+	nome
+FROM aluno WHERE idAluno = (
+
+);
+
+SELECT MAX(nota) FROM matricula;
+SELECT fkAluno FROM matricula ORDER BY nota DESC LIMIT 1; 
 
 -- 8) Mostre a disciplina com maior carga horária.
 
